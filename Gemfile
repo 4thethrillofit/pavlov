@@ -42,4 +42,7 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
+
+# Stripe Client Library
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
