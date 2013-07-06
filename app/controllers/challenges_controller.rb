@@ -4,7 +4,7 @@ class ChallengesController < ApplicationController
   end
 
   def show
-    @challenge = Challenge.find_by(:id)
+    @challenge = Challenge.find_by(:id => params[:id])
   end
 
   def new
@@ -12,11 +12,11 @@ class ChallengesController < ApplicationController
   end
 
   def create
-    @challenge = Challenge.new(params[:challenge])
+    @challenge = current_user.created_challenges.new(challenge_params)
     if @challenge.save
       @challenge.participants << current_user
       flash[:success] = "Challenge created!"
-      redirect challenge_path(@challenge)
+      redirect_to challenge_path(@challenge)
     else
       flash[:warning] = "Challenge not saved."
       # TO DO: propagate errors from @challenge
@@ -39,5 +39,10 @@ class ChallengesController < ApplicationController
 
   def is_logged_in?
     current_account ? true : false
+  end
+
+private
+  def challenge_params
+    params.require(:challenge).permit(:activity_type, :dollars_per_person, :fitness_amount, :start_date, :end_date)
   end
 end
