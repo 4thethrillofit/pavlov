@@ -1,5 +1,4 @@
 class Challenge < ActiveRecord::Base
-  attr_reader :creator_id
 
   belongs_to :creator, :class_name => "User"
   has_many :participations
@@ -8,4 +7,5 @@ class Challenge < ActiveRecord::Base
   def creator?(user)
     user.id == self.creator_id
   end
+
 end
