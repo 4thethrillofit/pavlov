@@ -46,3 +46,8 @@ gem 'debugger', group: [:development, :test]
 
 # Stripe Client Library
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+# gem 'debugger', group: [:development, :test]
+
+# using omniauth to handle auth with humanapi
+gem 'omniauth-humanapi'
+gem 'humanapi'
