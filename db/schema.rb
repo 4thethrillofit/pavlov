@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20130706211019) do
     t.integer  "fitness_amount"
     t.integer  "dollars_per_person"
     t.integer  "creator_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -5,6 +5,8 @@ class CreateChallenges < ActiveRecord::Migration
       t.integer :fitness_amount
       t.integer :dollars_per_person
       t.integer :creator_id
+      t.datetime :start_date
+      t.datetime :end_date
       t.timestamps
     end
   add_index :challenges, :creator_id
