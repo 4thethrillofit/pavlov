@@ -3,6 +3,5 @@ class User < ActiveRecord::Base
   has_many :participations
   has_many :participating_challenges, :through => :participations, :source => :challenge
 
-
 end
 

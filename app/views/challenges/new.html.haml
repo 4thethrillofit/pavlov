@@ -1,0 +1,9 @@
+= form_for @challenge do |f|
+  = f.text_field :activity_type, placeholder: 'Activity Type'
+  = f.text_field :fitness_amount, placeholder: 'Fitness Amoutn'
+  = f.text_field :dollars_per_person, placeholder: 'Dollars Per Person'
+  = f.label 'Start Date'
+  = f.date_select :start_date
+  = f.label 'End Date'
+  = f.date_select :end_date
+  = f.submit 'Submit'
