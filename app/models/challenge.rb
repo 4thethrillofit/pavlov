@@ -2,8 +2,8 @@ class Challenge < ActiveRecord::Base
   belongs_to :creator, :class_name => "User"
   has_many :participations
   has_many :participants, :through => :participations, :source => :user
-  scope :active_challenges, -> { where(end_date: nil) }
-  scope :inactive_challenges, -> { where("end_date IS NOT NULL") }
+  scope :active_challenges, -> { where(['end_date < ?', DateTime.now]) }
+  scope :inactive_challenges, -> { where(['end_date > ?', DateTime.now]) }
 
   attr_accessor :participant_email
 
