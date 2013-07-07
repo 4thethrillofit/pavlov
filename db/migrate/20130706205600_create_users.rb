@@ -1,7 +1,7 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      t.string :humanapi_token, null: false
+      t.text :humanapi_token, null: false
       t.string :stripe_customer_id
       t.string :stripe_recipient_id
       t.string :email, null: false

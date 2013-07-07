@@ -29,4 +29,8 @@ class User < ActiveRecord::Base
     recipient = StripeManager.create_recipient(name, email)
     update_attribute(:stripe_recipient_id, recipient.id)
   end
+
+  def current_participation(challenge)
+    self.participations.where('challenge_id = ?', challenge).first
+  end
 end
