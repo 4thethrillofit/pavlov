@@ -17,7 +17,7 @@ module StripeManager
       amount: amount * 100, # Stripe deals with cents
       currency: "usd",
       customer: customer_id,
-      description: "You lost a challenge on Pavlov"
+      description: "Challenge lost"
     )
   end
 
@@ -26,7 +26,7 @@ module StripeManager
       amount: amount * 100, # Stripe deals with cents
       currency: "usd",
       recipient: recipient_id,
-      description: "You won a challenge on Pavlov"
+      description: "Challenge won"
     )
   end
 end
