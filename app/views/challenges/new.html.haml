@@ -1,9 +1,19 @@
-= form_for @challenge do |f|
-  = f.text_field :activity_type, placeholder: 'Activity Type'
-  = f.text_field :fitness_amount, placeholder: 'Fitness Amoutn'
-  = f.text_field :dollars_per_person, placeholder: 'Dollars Per Person'
-  = f.label 'Start Date'
-  = f.date_select :start_date
-  = f.label 'End Date'
-  = f.date_select :end_date
-  = f.submit 'Submit'
+.container
+  .row
+    .offset1
+      %h1 Let's Challenge!
+      = form_for @challenge, html: { class: "form-horizontal" } do |f|
+        .control-group
+          = f.select :activity_type, Challenge.activity_types, { prompt:'Select Activity Type' }, required: true
+        .control-group
+          = f.text_field :fitness_amount, placeholder: 'Fitness Amoutn', required: true
+        .control-group
+          = f.text_field :dollars_per_person, placeholder: 'Dollars Per Person', required: true
+        .control-group
+          = f.label 'Start Date'
+          = f.date_select :start_date
+        .control-group
+          = f.label 'End Date'
+          = f.date_select :end_date
+        .control-group
+          = f.submit 'Submit', class: "btn"

@@ -1,12 +1,13 @@
-= form_for @challenge, url: challenge_participations_path(@challenge), method: 'POST' do |f|
-  = f.text_field :participant_email, placeholder: 'Participant Email'
-  = f.submit 'Submit'
+.container
+  = form_for @challenge, url: challenge_participations_path(@challenge), method: 'POST' do |f|
+    = f.text_field :participant_email, placeholder: 'Participant Email'
+    = f.submit 'Submit'
 
-= "Challenge id #{@challenge.id}"
-= "#{@challenge.fitness_amount} #{@challenge.activity_type} per week"
-= "You wagered #{number_to_currency(@challenge.dollars_per_person)}"
+  = "Challenge id #{@challenge.id}"
+  = "#{@challenge.fitness_amount} #{@challenge.activity_type} per week"
+  = "You wagered #{number_to_currency(@challenge.dollars_per_person)}"
 
-%h3 Challenge Participants
-%ul
-  - @participants.each do |participant|
-    %li= participant.name
+  %h3 Challenge Participants
+  %ul
+    - @participants.each do |participant|
+      %li= participant.name
