@@ -16,5 +16,5 @@
         %div
           = "Current Progress: #{participant.current_participation(@challenge).amount}"
 
-          .progress.progress-danger.progress-striped
+          .progress.progress-danger
             .bar{style: "width: #{participant.current_participation(@challenge).calculate_participant_progress}%"}
