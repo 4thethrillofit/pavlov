@@ -17,4 +17,8 @@ class Challenge < ActiveRecord::Base
     user.id == self.creator_id
   end
 
+  def self.activity_types
+    ['easy exercise', 'moderate exercise', 'riqorous exercise', 'steps']
+  end
+
 end
