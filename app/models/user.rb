@@ -20,4 +20,8 @@ class User < ActiveRecord::Base
     self.stripe_customer_id = customer.id
     save!
   end
+
+  def current_participation(challenge)
+    self.participations.where('challenge_id = ?', challenge).first
+  end
 end

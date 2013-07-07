@@ -9,4 +9,3 @@ u4 = User.create(humanapi_token: '24e82d03d4c84fa5aa9877297a91b37f608fc200', ema
 c = u.created_challenges.create(activity_type: "steps", fitness_amount: 70000, dollars_per_person: 10, start_date: DateTime.new(2013,7,7), end_date: DateTime.new(2013,7,14))
 
 c.participants << u2 << u3 << u4
-
