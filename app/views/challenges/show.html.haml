@@ -5,3 +5,8 @@
 = "Challenge id #{@challenge.id}"
 = "#{@challenge.fitness_amount} #{@challenge.activity_type} per week"
 = "You wagered #{number_to_currency(@challenge.dollars_per_person)}"
+
+%h3 Challenge Participants
+%ul
+  - @participants.each do |participant|
+    %li= participant.name
