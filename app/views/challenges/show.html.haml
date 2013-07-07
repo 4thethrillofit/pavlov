@@ -3,11 +3,18 @@
     = f.text_field :participant_email, placeholder: 'Participant Email'
     = f.submit 'Submit'
 
-  = "Challenge id #{@challenge.id}"
-  = "#{@challenge.fitness_amount} #{@challenge.activity_type} per week"
-  = "You wagered #{number_to_currency(@challenge.dollars_per_person)}"
+  %h3= "CHALLENGE: "
+  %h4= "#{@challenge.fitness_amount} #{@challenge.activity_type} per week"
+  %h4= "Each Person Wagers: #{number_to_currency(@challenge.dollars_per_person)}"
 
   %h3 Challenge Participants
   %ul
     - @participants.each do |participant|
-      %li= participant.name
+      %li
+        = participant.name + ":"
+        %div
+          = "Challenge Amount: #{@challenge.fitness_amount}, "
+          = "Current Progress: #{participant.current_participation(@challenge).amount}"
+
+          .progress.progress-danger.progress-striped
+            .bar{style: "width: #{participant.current_participation(@challenge).calculate_participant_progress}%"}

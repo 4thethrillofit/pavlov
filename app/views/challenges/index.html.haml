@@ -1,13 +1,14 @@
 .container
-  %h1 Active Challenges
+  =link_to "New Challenge", new_challenge_path, :class => "btn"
+  %h3 Active Challenges
   %ul
     - if @active_challenges.empty?
       %li None
     - @active_challenges.each do |challenge|
-      %li= challenge.activity_type
-  %h1 Inactive Challenges
+      %li= link_to challenge.activity_type, challenge_path(challenge)
+  %h3 Inactive Challenges
   %ul
     - if @inactive_challenges.empty?
       %li None
     - @inactive_challenges.each do |challenge|
-      %li= challenge.activity_type
+      %li= link_to challenge.activity_type, challenge_path(challenge)

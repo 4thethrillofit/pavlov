@@ -2,8 +2,8 @@ class Challenge < ActiveRecord::Base
   belongs_to :creator, :class_name => "User"
   has_many :participations
   has_many :participants, :through => :participations, :source => :user
-  scope :active_challenges, -> { where(['end_date < ?', DateTime.now]) }
-  scope :inactive_challenges, -> { where(['end_date > ?', DateTime.now]) }
+  scope :active_challenges, -> { where(['end_date > ?', DateTime.now]) }
+  scope :inactive_challenges, -> { where(['end_date < ?', DateTime.now]) }
   validates :start_date, :presence => true
   validates :end_date, :presence => true
 
@@ -18,7 +18,6 @@ class Challenge < ActiveRecord::Base
   end
 
   def self.activity_types
-    ['easy exercise', 'moderate exercise', 'riqorous exercise', 'steps']
+    ['minutes of easy exercise', 'minutes of moderate exercise', 'minutes of rigorous exercise', 'steps']
   end
-
 end
