@@ -11,6 +11,10 @@
   %ul
     - @participants.each do |participant|
       %li
-        = participant.name
-        .progress
-          .bar{style: "width: #{participant.current_participation(@challenge).calculate_participant_progress}%"}
+        = participant.name + ":"
+        %div
+          = "Challenge Amount: #{@challenge.fitness_amount}"
+          = "Current Progress: #{participant.current_participation(@challenge).amount}"
+
+          .progress.progress-danger.progress-striped
+            .bar{style: "width: #{participant.current_participation(@challenge).calculate_participant_progress}%"}

@@ -4,6 +4,8 @@ class Participation < ActiveRecord::Base
 
   def calculate_participant_progress
     # return false if nil
-    (challenge.fitness_amount / amount.to_f) * 100 unless nil
+    (amount.to_f / challenge.fitness_amount) * 100 unless nil
   end
 end
+
+# number_to_percentage(participant.current_participation(@challenge).calculate_participant_progress, precision: 2)
