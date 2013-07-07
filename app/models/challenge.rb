@@ -18,7 +18,7 @@ class Challenge < ActiveRecord::Base
   end
 
   def self.activity_types
-    ['easy exercise', 'moderate exercise', 'riqorous exercise', 'steps']
+    ['easy exercise', 'moderate exercise', 'rigorous exercise', 'steps']
   end
 
 end
