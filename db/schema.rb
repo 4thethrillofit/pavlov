@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20130706211019) do
   add_index "participations", ["user_id", "challenge_id"], name: "index_participations_on_user_id_and_challenge_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "humanapi_token",      null: false
+    t.text     "humanapi_token",      null: false
     t.string   "stripe_customer_id"
     t.string   "stripe_recipient_id"
     t.string   "email",               null: false
