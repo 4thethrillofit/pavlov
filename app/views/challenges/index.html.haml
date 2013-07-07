@@ -1,12 +1,13 @@
-%h1 Active Challenges
-%ul
-  - if @active_challenges.empty?
-    %li None
-  - @active_challenges.each do |challenge|
-    %li= challenge.activity_type
-%h1 Inactive Challenges
-%ul
-  - if @inactive_challenges.empty?
-    %li None
-  - @inactive_challenges.each do |challenge|
-    %li= challenge.activity_type
+.container
+  %h1 Active Challenges
+  %ul
+    - if @active_challenges.empty?
+      %li None
+    - @active_challenges.each do |challenge|
+      %li= challenge.activity_type
+  %h1 Inactive Challenges
+  %ul
+    - if @inactive_challenges.empty?
+      %li None
+    - @inactive_challenges.each do |challenge|
+      %li= challenge.activity_type

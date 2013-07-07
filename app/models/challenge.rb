@@ -4,6 +4,8 @@ class Challenge < ActiveRecord::Base
   has_many :participants, :through => :participations, :source => :user
   scope :active_challenges, -> { where(['end_date < ?', DateTime.now]) }
   scope :inactive_challenges, -> { where(['end_date > ?', DateTime.now]) }
+  validates :start_date, :presence => true
+  validates :end_date, :presence => true
 
   attr_accessor :participant_email
 
@@ -13,6 +15,10 @@ class Challenge < ActiveRecord::Base
 
   def creator?(user)
     user.id == self.creator_id
+  end
+
+  def self.activity_types
+    ['easy exercise', 'moderate exercise', 'riqorous exercise', 'steps']
   end
 
 end

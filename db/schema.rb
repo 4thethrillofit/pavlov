@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20130706211019) do
   create_table "participations", force: true do |t|
     t.integer  "user_id"
     t.integer  "challenge_id"
+    t.integer  "amount",       default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
