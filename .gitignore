@@ -19,3 +19,5 @@
 .env
 Procfile
 /config/initializers/driver.rb
+
+.DS_Store
