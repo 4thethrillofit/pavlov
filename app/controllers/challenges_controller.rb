@@ -1,11 +1,12 @@
 class ChallengesController < ApplicationController
   def index
-    @challenges = current_user.participating_challenges.to_a
+    @active_challenges = current_user.participating_challenges.active_challenges
+    @inactive_challenges = current_user.participating_challenges.inactive_challenges
   end
 
   def show
     @challenge = Challenge.find_by(:id => params[:id])
-    @participants = @challenge.participants.to_a
+    @participants = @challenge.participants
   end
 
   def new
