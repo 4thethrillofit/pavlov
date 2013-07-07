@@ -26,4 +26,7 @@ Pavlov::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+  # ENV['STRIPE_API_KEY'] =
+  ENV['HUMAN_API_APP_ID'] = '9b7bd4eec8751dcc7f82d5f43312894e8f2fb5e6'
+  ENV['HUMAN_API_APP_SECRET'] = 'ef2ea0847f99b64b20b8e268351a27af7a2411be'
 end
