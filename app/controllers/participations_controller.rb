@@ -1,6 +1,5 @@
 class ParticipationsController < ApplicationController
   def create
-    debugger
     @challenge = Challenge.find_by(:id => params[:challenge_id])
     @participant = User.find_by(:email => params[:challenge][:participant_email])
     if @challenge
