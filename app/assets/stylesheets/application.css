@@ -29,3 +29,8 @@ body {
 li {
   list-style: none;
 }
+
+a.all-challenges {
+  margin-top: 20px;
+  position: relative;
+}
