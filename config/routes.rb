@@ -1,10 +1,8 @@
 Pavlov::Application.routes.draw do
   resources :checkouts, :only => [:new, :create]
   get "welcome/index"
-  get "sessions/new"
-  get "sessions/create"
-  get "sessions/failure"
   get "payment/create"
+  resource :sessions, :only => [:create, :destroy]
   resources :challenges
   root :to => 'welcome#index'
   resources :challenges do
