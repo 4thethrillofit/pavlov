@@ -18,3 +18,4 @@
 # Ignoring .env and Procfile
 .env
 Procfile
+/config/initializers/driver.rb
