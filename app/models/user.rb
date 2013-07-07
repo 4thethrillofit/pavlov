@@ -15,10 +15,19 @@ class User < ActiveRecord::Base
     end
   end
 
+  def save_stripe_details
+    save_stripe_customer_id
+    save_stripe_recipient_id
+  end
+
   def save_stripe_customer_id
     customer = StripeManager.create_customer(email)
-    self.stripe_customer_id = customer.id
-    save!
+    update_attribute(:stripe_customer_id, customer.id)
+  end
+
+  def save_stripe_recipient_id
+    recipient = StripeManager.create_recipient(name, email)
+    update_attribute(:stripe_recipient_id, recipient.id)
   end
 
   def current_participation(challenge)

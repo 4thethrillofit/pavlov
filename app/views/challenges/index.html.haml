@@ -1,4 +1,5 @@
 .container
+  =link_to "New Challenge", new_challenge_path, :class => "btn"
   %h3 Active Challenges
   %ul
     - if @active_challenges.empty?
