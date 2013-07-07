@@ -10,4 +10,7 @@
   %h3 Challenge Participants
   %ul
     - @participants.each do |participant|
-      %li= participant.name
+      %li
+        = participant.name
+        .progress
+          .bar{style: "width: #{participant.current_participation(@challenge).calculate_participant_progress}%"}

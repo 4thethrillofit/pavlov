@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def current_participation(challenge)
+    self.participations.where('challenge_id = ?', challenge).first
+  end
 end
