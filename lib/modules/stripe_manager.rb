@@ -1,21 +1,19 @@
 module StripeManager
   extend self
-  def charge(stripe_token)
-    Stripe.api_key = ENV["STRIPE_API_KEY"]
-    token = stripe_token
 
+  Stripe.api_key = ENV["STRIPE_API_KEY"]
+
+  def charge(amount, customer_id)
     #Create the charge on Stripe's servers - this will charge the user's card
-    begin
-      charge = Stripe::Charge.create(
-        :amount => 1000, # amount in cents, again
-        :currency => "usd",
-        :card => token,
-        :description => "payinguser@example.com"
-      )
-    rescue Stripe::CardError => e
-      puts e
-      # The card has been declined
-    end
+    charge = Stripe::Charge.create(
+      :amount => amount * 100, # Stripe deals with cents
+      :currency => "usd",
+      :customer => customer_id
+    )
+  end
+
+  def create_customer(email)
+    Stripe::Customer.create(email: email)
   end
 end
 
