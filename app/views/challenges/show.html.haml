@@ -1,7 +1,7 @@
 .container
-  = form_for @challenge, url: challenge_participations_path(@challenge), method: 'POST' do |f|
+  = form_for @challenge, url: challenge_participations_path(@challenge), method: 'POST', html: { class: 'form-inline' } do |f|
     = f.text_field :participant_email, placeholder: 'Participant Email'
-    = f.submit 'Submit'
+    = f.submit 'Submit', class: 'btn'
 
   %h3= "CHALLENGE: "
   %h4= "#{@challenge.fitness_amount} #{@challenge.activity_type} per week"

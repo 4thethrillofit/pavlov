@@ -35,14 +35,6 @@ class ChallengesController < ApplicationController
   def destroy
   end
 
-  def current_user
-    @current_user ||= User.last
-  end
-
-  def is_logged_in?
-    current_account ? true : false
-  end
-
 private
   def challenge_params
     params.require(:challenge).permit(:activity_type, :dollars_per_person, :fitness_amount, :start_date, :end_date)
