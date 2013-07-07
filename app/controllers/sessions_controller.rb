@@ -7,6 +7,9 @@ class SessionsController < ApplicationController
     token  = auth[:credentials][:token]
     user = User.where(email: email).first_or_create(humanapi_token: token,
                                              name: email)
+    p user
+    user.humanapi_token = token
+    p user
     if user.save
       login_user(user)
       redirect_to challenges_path
