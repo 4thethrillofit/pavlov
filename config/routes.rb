@@ -5,7 +5,9 @@ Pavlov::Application.routes.draw do
   get "sessions/create"
   get "sessions/failure"
   get "payment/create"
-  resources :challenges
+  resources :challenges do
+    resources :participations, :only => [:create, :destroy]
+  end
   root :to => 'challenges#index'
   get '/auth/humanapi/callback' => 'sessions#create', :auth_provider => 'humanapi'
   # The priority is based upon order of creation: first created -> highest priority.
