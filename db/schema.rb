@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20130706211019) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "challenges", force: true do |t|
     t.string   "activity_type",      null: false
     t.integer  "fitness_amount"
@@ -24,7 +27,7 @@ ActiveRecord::Schema.define(version: 20130706211019) do
     t.datetime "updated_at"
   end
 
-  add_index "challenges", ["creator_id"], name: "index_challenges_on_creator_id"
+  add_index "challenges", ["creator_id"], name: "index_challenges_on_creator_id", using: :btree
 
   create_table "participations", force: true do |t|
     t.integer  "user_id"
@@ -33,7 +36,7 @@ ActiveRecord::Schema.define(version: 20130706211019) do
     t.datetime "updated_at"
   end
 
-  add_index "participations", ["user_id", "challenge_id"], name: "index_participations_on_user_id_and_challenge_id", unique: true
+  add_index "participations", ["user_id", "challenge_id"], name: "index_participations_on_user_id_and_challenge_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "humanapi_token", null: false
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(version: 20130706211019) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["humanapi_token"], name: "index_users_on_humanapi_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["humanapi_token"], name: "index_users_on_humanapi_token", unique: true, using: :btree
 
 end
