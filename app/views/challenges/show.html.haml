@@ -6,6 +6,7 @@
   %h3= "CHALLENGE: "
   %h4= "#{@challenge.fitness_amount} #{@challenge.activity_type} per week"
   %h4= "Each Person Wagers: #{number_to_currency(@challenge.dollars_per_person)}"
+  %h4= "Challenge Ends On: #{@challenge.end_date}"
 
   %h3 Challenge Participants
   %ul
@@ -13,7 +14,6 @@
       %li
         = participant.name + ":"
         %div
-          = "Challenge Amount: #{@challenge.fitness_amount}, "
           = "Current Progress: #{participant.current_participation(@challenge).amount}"
 
           .progress.progress-danger.progress-striped
