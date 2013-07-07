@@ -6,12 +6,15 @@ class SessionsController < ApplicationController
   def create
     auth_hash = request.env['omniauth.auth']
     auth   = env['omniauth.auth']
-    email  = auth[:info][:email]
-    token  = auth[:credentials][:token]
-    user = User.where(email: email).first_or_create(
-                                            humanapi_token: token,
-                                            name: email)
+    p auth
+    p "***********************************"
+    p uid    = auth[:uid]
+    p email  = auth[:info][:email]
+    p token  = auth[:credentials][:token]
+    user = User.where(email: email).first_or_create(humanapi_token: token,
+                                             name: email)
     if user.save
+      "******************"
       login_user(user)
       redirect_to root_path
     else

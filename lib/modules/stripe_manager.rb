@@ -1,7 +1,8 @@
 module StripeManager
-  def charge
+  extend self
+  def charge(stripe_token)
     Stripe.api_key = ENV["STRIPE_API_KEY"]
-    token = params[:stripeToken]
+    token = stripe_token
 
     #Create the charge on Stripe's servers - this will charge the user's card
     begin
@@ -17,3 +18,4 @@ module StripeManager
     end
   end
 end
+

@@ -1,10 +1,19 @@
 module HumanApiManager
   extend self
-  def activity token
+
+  def all_activity token
     HumanAPI::Human.token = token
-    p HumanAPI::Human.all_activity
-#    p HumanAPI::Human.activity "51d849e32b4164686200000a"
-    p HumanAPI::Human.daily_activity Time.now.to_date - 10
-    p HumanAPI::Human.series_activity Time.now.to_date - 10
+    HumanAPI::Human.all_activity
   end
+
+  def daily_activity token, date
+    HumanAPI::Human.token = token
+    HumanAPI::Human.daily_activity date
+  end
+
+  def series_activity token, date
+    HumanAPI::Human.token = token
+    HumanAPI::Human.series_activity date
+  end
+
 end
